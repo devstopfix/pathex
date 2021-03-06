@@ -18,7 +18,7 @@ jobs:
           elixir-version: ${{matrix.elixir}}
       - run: mix deps.get
       - run: mix compile --warnings-as-errors
-      - run: mix credo --strict
+#      - run: mix credo --strict
       - name: "Check formatted?"
         run: mix format mix.exs "{lib,test}/**/*.{ex,exs}" --check-formatted
         if: ${{ startsWith(matrix.elixir, '1.11') }}
