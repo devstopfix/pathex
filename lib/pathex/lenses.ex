@@ -193,6 +193,7 @@ defmodule Pathex.Lenses do
       iex> [%{x: 1}, [x: 2]] = Pathex.over!([%{x: 0}, [x: 1]], alll ~> path(:x), fn x -> x + 1 end)
       iex> [1, 2, 3] = Pathex.view!(%{x: 1, y: 2, z: 3}, alll) |> Enum.sort()
       iex> {:ok, [x: 2, y: 2]} = Pathex.set([x: 1, y: 0], alll, 2)
+
   """
   @spec all() :: Pathex.t()
   def all do
@@ -327,8 +328,8 @@ defmodule Pathex.Lenses do
       iex> %{x: %{y: 1}, z: [3]} = Pathex.set!(%{x: %{y: 0}, z: [3]}, starl ~> path(:y, :map), 1)
       iex> {:ok, [1, 2, 3]} = Pathex.view([x: 1, y: 2, z: 3], starl)
 
-  > Note:  
-  > Force update works the same way as `all` lens  
+  > Note:
+  > Force update works the same way as `all` lens
   > And update leaves unusable data unchanged
   """
   @spec star() :: Pathex.t()
